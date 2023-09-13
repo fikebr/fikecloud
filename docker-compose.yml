@@ -14,4 +14,4 @@ services:
   whoami:
     image: containous/whoami
     labels:
-      - traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)
+      - traefik.http.routers.whoami.rule=Host(`whoami.ilikefike.com`)
