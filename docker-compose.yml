@@ -6,12 +6,14 @@ services:
     container_name: traefik
     image: traefik:v2.2
     restart: unless-stopped
-    command: --api.insecure=true --providers.docker
+    command: --configFile=/traefik.toml --docker --docker.domain=ilikefike.com --api.insecure=true --providers.docker
     ports:
       - "80:80"
       - "8080:8080" # Dashboard
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/traefik.toml:/traefik.toml
+      - ./traefik/acme.json:/acme.json
     networks:
       - traefik
     labels:
