@@ -1,4 +1,8 @@
-*.ilikefike.com, localhost {
+{
+email ilikefike@fikeweb.com
+}
+
+*.ilikefike.com, localhost, 159.89.93.199 {
     respond <<HTML
         <html>
             <head><title>Foo</title></head>
