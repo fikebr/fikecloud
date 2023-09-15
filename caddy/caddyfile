@@ -1,3 +1,8 @@
-http://whoami.ilikefike.com {
-  reverse_proxy http://whoami:80
+*.ilikefike.com, localhost {
+    respond <<HTML
+        <html>
+            <head><title>Foo</title></head>
+            <body>Foo</body>
+        </html>
+    HTML 200
 }
