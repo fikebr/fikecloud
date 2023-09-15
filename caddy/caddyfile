@@ -1,0 +1,3 @@
+http://whoami.ilikefike.com {
+  reverse_proxy http://whoami:80
+}
