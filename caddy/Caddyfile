@@ -3,11 +3,6 @@
 }
 
 www.ilikefike.com {
-    respond <<HTML
-        <html>
-            <head><title>Foo</title></head>
-            <body>Foo</body>
-        </html>
-    HTML 200
+    respond It Worked!!!
     tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
 }
