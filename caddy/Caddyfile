@@ -1,24 +1,26 @@
 {
-    email ilikefike@fikeweb.com
+email ilikefike@fikeweb.com
 }
 
 www.ilikefike.com, ilikefike.com {
-    respond <<HTML
-    <html>
+respond <<HTML <html>
+
     <head>
-    <title>Foo</title>
+        <title>Foo</title>
     </head>
+
     <body>Foo</body>
+
     </html>
     HTML 200
     tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
-}
+    }
 
-whoami.ilikefike.com {
+    whoami.ilikefike.com {
     reverse_proxy http://whoami:2001
-}
+    }
 
-cloud.ilikefike.com {
-    reverse_proxy http://nextcloud-aio-mastercontainer:8080
+    cloud.ilikefike.com {
+    reverse_proxy https://nextcloud-aio-mastercontainer:8080
     tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
-}
+    }
