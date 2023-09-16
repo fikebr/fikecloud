@@ -26,16 +26,20 @@ services:
   nextcloud:
     image: nextcloud/all-in-one:latest
     restart: unless-stopped
-    container_name: nextcloud-aio-mastercontainer
+    container_name: nextcloud
     environment:
       - APACHE_PORT=11000
     volumes:
-      - ./nextcloud/config:/mnt/docker-aio-config
+      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
       - /var/run/docker.sock:/var/run/docker.sock:ro
     depends_on:
       - caddy
     networks:
       - ilikefike-int
+
+volumes:
+  nextcloud_aio_mastercontainer:
+    name: nextcloud_aio_mastercontainer
 
 networks:
   ilikefike-ext:
