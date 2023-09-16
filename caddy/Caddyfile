@@ -19,6 +19,6 @@ whoami.ilikefike.com {
 }
 
 cloud.ilikefike.com {
-    reverse_proxy http://nextcloud:8080
+    reverse_proxy http://nextcloud-aio-mastercontainer:8080
     tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
 }
