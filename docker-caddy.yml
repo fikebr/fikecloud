@@ -23,6 +23,19 @@ services:
       - --port=2001
     networks:
       - ilikefike-int
+  nextcloud:
+    image: nextcloud/all-in-one:latest
+    restart: unless-stopped
+    container_name: nextcloud
+    environment:
+      - APACHE_PORT=11000
+    volumes:
+      - ./nextcloud/config:/mnt/docker-aio-config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on:
+      - caddy
+    networks:
+      - ilikefike-int
 
 networks:
   ilikefike-ext:

@@ -17,3 +17,8 @@ www.ilikefike.com, ilikefike.com {
 whoami.ilikefike.com {
     reverse_proxy http://whoami:2001
 }
+
+cloud.ilikefike.com {
+    reverse_proxy http://nextcloud:8080
+    tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
+}
