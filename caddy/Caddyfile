@@ -13,3 +13,7 @@ www.ilikefike.com, ilikefike.com {
     HTML 200
     tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
 }
+
+whoami.ilikefike.com {
+    reverse_proxy http://whoami:2001
+}
