@@ -3,7 +3,7 @@ version: "3.9"
 services:
   caddy:
     image: caddy:latest
-    container_name: "caddy"
+    container_name: "caddy2"
     ports:
       - "80:80"
       - "443:443"
@@ -14,8 +14,12 @@ services:
       - ./caddy/key.pem:/etc/ssl/private/key.pem
       - ./caddy/certificate.pem:/etc/ssl/certs/certificate.pem
     networks:
-      - traefik
+      - ilikefike-int
+      - ilikefike-ext
 
 networks:
-  traefik:
+  ilikefike-ext:
     external: true
+  ilikefike-int:
+    external: false
+    driver: bridge

@@ -2,7 +2,14 @@
     email ilikefike@fikeweb.com
 }
 
-www.ilikefike.com {
-    respond It Worked!!!
+www.ilikefike.com, ilikefike.com {
+    respond <<HTML
+    <html>
+    <head>
+    <title>Foo</title>
+    </head>
+    <body>Foo</body>
+    </html>
+    HTML 200
     tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
 }
