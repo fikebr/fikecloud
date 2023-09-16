@@ -10,6 +10,8 @@ services:
     volumes:
       - ./caddy/:/etc/caddy/
       - ./caddy/data:/data
+      - ./caddy/key.pem:/etc/ssl/private/key.pem
+      - ./caddy/certificate.pem:/etc/ssl/certs/certificate.pem
     networks:
       - traefik
 

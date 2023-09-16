@@ -2,11 +2,12 @@
     email ilikefike@fikeweb.com
 }
 
-www.ilikefike.com, localhost, 159.89.93.199 {
+www.ilikefike.com {
     respond <<HTML
         <html>
             <head><title>Foo</title></head>
             <body>Foo</body>
         </html>
     HTML 200
+    tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
 }
