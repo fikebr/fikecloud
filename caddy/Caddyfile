@@ -26,5 +26,4 @@ cloud.ilikefike.com:443 {
 
 adminer.ilikefike.com {
     reverse_proxy https://adminer:8080
-    tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
 }
