@@ -3,14 +3,13 @@ email ilikefike@fikeweb.com
 }
 
 www.ilikefike.com, ilikefike.com {
-    respond <<HTML <html>
-
+header Content-Type text/html
+respond <<HTML 
+    <html>
     <head>
         <title>Foo</title>
     </head>
-
     <body>Foo</body>
-
     </html>
     HTML 200
     tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
