@@ -23,23 +23,26 @@ services:
       - --port=2001
     networks:
       - ilikefike-int
-  nextcloud:
-    image: nextcloud/all-in-one:latest
-    restart: unless-stopped
-    container_name: nextcloud-aio-mastercontainer
-    environment:
-      - APACHE_PORT=11000
+  db:
+    image: mariadb:latest
+    container_name: "db"
+    restart: always
+    command: "--transaction-isolation=READ-COMMITTED --binlog-format=ROW"
     volumes:
-      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    depends_on:
-      - caddy
+      - ./mariadb/datadir:/var/lib/mysql
     networks:
       - ilikefike-int
-
-volumes:
-  nextcloud_aio_mastercontainer:
-    name: nextcloud_aio_mastercontainer
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASS}
+      - MARIADB_PASSWORD=${DB_PASS}
+      - MARIADB_DATABASE=nextcloud
+      - MARIADB_USER=nextcloud
+  adminer:
+    image: adminer
+    container_name: "adminer"
+    restart: always
+    networks:
+      - ilikefike-int
 
 networks:
   ilikefike-ext:
