@@ -2,28 +2,28 @@
 email ilikefike@fikeweb.com
 }
 
-www.ilikefike.com, ilikefike.com {
-header Content-Type text/html
-respond <<HTML 
-    <html>
-    <head>
-        <title>Foo</title>
-    </head>
-    <body>Foo</body>
-    </html>
-    HTML 200
+(tls) {
     tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
+}
+
+www.ilikefike.com, ilikefike.com {
+    header Content-Type text/html
+    root * /etc/caddy/web
+    file_server
+    import tls
 }
 
 whoami.ilikefike.com {
     reverse_proxy http://whoami:2001
+    import tls
 }
 
 cloud.ilikefike.com:443 {
     reverse_proxy https://nextcloud-aio-mastercontainer:8080
-    tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
+    import tls
 }
 
 adminer.ilikefike.com {
     reverse_proxy https://adminer:8080
+    import tls
 }
