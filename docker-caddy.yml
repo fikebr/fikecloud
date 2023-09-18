@@ -36,13 +36,28 @@ services:
       - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASS}
       - MARIADB_PASSWORD=${DB_PASS}
       - MARIADB_DATABASE=nextcloud
-      - MARIADB_USER=nextcloud
+      - MARIADB_USER=${DB_USER}
   adminer:
     image: adminer
     container_name: "adminer"
     restart: always
     networks:
       - ilikefike-int
+  nextcloud:
+    image: nextcloud
+    container_name: "nextcloud"
+    restart: always
+    links:
+      - db
+    networks:
+      - ilikefike-int
+    volumes:
+      - ./nextcloud/html:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_HOST=db
 
 networks:
   ilikefike-ext:

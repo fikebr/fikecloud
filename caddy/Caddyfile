@@ -19,11 +19,10 @@ whoami.ilikefike.com {
 }
 
 cloud.ilikefike.com:443 {
-    reverse_proxy https://nextcloud-aio-mastercontainer:8080
+    reverse_proxy https://nextcloud:8080
     import tls
 }
 
 adminer.ilikefike.com {
-    reverse_proxy https://adminer:8080
-    import tls
+    reverse_proxy http://adminer:8080
 }
