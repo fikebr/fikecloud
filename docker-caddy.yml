@@ -24,7 +24,7 @@ services:
     networks:
       - ilikefike-int
   db:
-    image: mariadb:latest
+    image: mariadb:11.1.2-jammy
     container_name: "db"
     restart: always
     command: "--transaction-isolation=READ-COMMITTED --binlog-format=ROW"

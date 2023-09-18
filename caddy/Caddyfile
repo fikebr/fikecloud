@@ -1,5 +1,5 @@
 {
-email ilikefike@fikeweb.com
+    email ilikefike@fikeweb.com
 }
 
 (tls) {
@@ -19,7 +19,7 @@ whoami.ilikefike.com {
 }
 
 cloud.ilikefike.com {
-    reverse_proxy https://nextcloud:8080
+    reverse_proxy https://nextcloud:80
     import tls
 }
 
