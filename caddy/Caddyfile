@@ -18,7 +18,7 @@ whoami.ilikefike.com {
     import tls
 }
 
-cloud.ilikefike.com:443 {
+cloud.ilikefike.com {
     reverse_proxy https://nextcloud:8080
     import tls
 }
